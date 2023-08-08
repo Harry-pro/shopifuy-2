@@ -1,0 +1,130 @@
+
+
+.task_003{
+  padding: 100px 10px 200px 10px;
+}
+
+.task_003 a{
+  display:inline-block;
+  text-decoration: none;
+  color: black;
+}
+
+
+/* Style the main menu container */
+.custom_menus {
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Style the heading */
+#custom_heading h1{
+  font-size: 20px;
+  color: white;
+  margin: 0;
+  font-weight: bolder;
+}
+
+#custom_heading{
+  background-color: black;
+  border-bottom: solid white 1px;
+  padding: 15px 0;
+
+  
+}
+
+/* .custom_menus_heading{
+
+  margin: 0;
+} */
+
+/* Style the parent menu */
+.parent_menu {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: grey;
+  margin: 0;
+  position: relative;
+  text-align: centre;
+  
+
+}
+
+.parent_menu_item {
+  
+  padding: 10px 30px;
+  margin: 0;
+}
+ 
+.parent_menu_item:hover .child_menu {
+  display: block;
+  list-style: none;
+}
+
+/* Style the child menu */
+.child_menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  padding: 10px;
+  list-style: none;
+  width: 100%;
+  margin: 0;
+  background-color: grey;
+  border-top: solid white 1px;
+}
+
+.child_menu li {
+/*   margin: 5px 0 0 0; */
+}
+
+.child_menu a {
+  color: #333;
+  text-decoration: none;
+  display: inline-block;
+  
+}
+
+.child_menu a:hover {
+  color: #ff0000; /* Branded color for hover state */
+}
+
+/* Style the grandchild menu */
+.grandchild_menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  padding: 10px;
+  list-style: none;
+  width: 100%;
+  margin: 0;
+  background-color: grey;
+  min-width: 138px;
+  border-top: solid white 1px;
+  
+}
+
+.grandchild_menu li {
+/*   margin: 5px 0 0 0; */
+}
+
+.grandchild_menu a {
+  color: #333;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.grandchild_menu a:hover {
+  color: #ff0000; /* Branded color for hover state */
+}
+
+.parent_menu_item .child_menu:hover .grandchild_menu{
+  display: block;
+}

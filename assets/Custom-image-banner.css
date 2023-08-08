@@ -1,0 +1,16 @@
+.banners{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.banners .image_1{
+  flex: 0 0 50%;
+}
+
+.banners .image_2{
+  flex: 0 0 50%;
+}
+
+img{
+  width: 100%;
+}
