@@ -1,0 +1,34 @@
+<div class="custom_product_template container">
+  <div class="product_img">
+    <img src="{{ product.featured_image | img_url:'master' }}">
+  </div>
+  <form class="product_content" action="/cart/add" method="post">
+    <h1 class="product_title">{{ product.title }}</h1>
+    <p>SKU:{{ product.variants.first.sku }}</p>
+    <p>{{ product.price | money_with_currency }}</p>
+    <label for="variant_select">Size & Color</label>
+    <select name="id" id="variant_select">
+      {% for variant in product.variants %}
+        <option value="{{ variant.id }}">{{ variant.title }} / {{ variant.price | money_with_currency }}</option>
+      {% endfor %}
+    </select>
+    <div>
+      <label for="quantity_selector">Quantity</label>
+      <input type="number" name="quantity" value="1" min="1" id="quantity_selector">
+    </div>
+    <div>
+      <a href="#" id="custom_cart_button_2">add to cart</a>
+    </div>
+  </form>
+</div>
+<script>
+  document.getElementById('custom_cart_button_2').addEventListener('click',function(event){
+    event.preventDefault();
+
+   var variant_id={{product.selected_variant.id}};
+   var quantity = parseInt(document.getElementById('quantity_selector').value);
+
+    Shopify.addItem(variant_id,quantity);
+    alert('Product added to cart!');
+  });
+</script>

@@ -1,0 +1,17 @@
+<div class="custom-cart">
+  <h2>Custom Cart</h2>
+  <div class="cart-items">
+    <form method="POST" action="/custom_cart/remove">
+      {% for item in cart.items %}
+        <div class="cart-item">
+          <p>{{ item.title }}</p>
+          <p>Quantity: {{ item.quantity }}</p>
+          <p>Price: {{ item.price | money }}</p>
+          <input type="hidden" name="item_key" value="{{ item.key }}">
+          <button class="remove-item" type="submit">Remove</button>
+        </div>
+      {% endfor %}
+    </form>
+  </div>
+  <p>Total: {{ cart.total_price | money }}</p>
+</div>
