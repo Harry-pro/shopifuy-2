@@ -1,0 +1,55 @@
+<div class="banners">
+  <div class="image_1">
+    <a href="{{ section.settings.link_1 }}">
+      <img src="{{ section.settings.image |img_url:'master' }}">
+    </a>
+  </div>
+
+  <div class="image_2">
+    <a href="{{ section.settings.link_2 }}">
+      <img src="{{ section.settings.image_2 |img_url:'master' }}">
+    </a>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom-image-banner",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "image-banner-1"
+    },
+
+    {
+      "type": "url",
+      "id": "link_1",
+      "label": "Image Link"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "image-banner-2"
+    },
+
+    {
+      "type": "url",
+      "id": "link_2",
+      "label": "Image Link"
+    }
+
+  ],
+  "presets": [
+    {
+      "name": "custom-image-banner"
+    }
+  ]
+}
+{% endschema %}

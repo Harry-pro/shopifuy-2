@@ -1,0 +1,70 @@
+{% stylesheet %}
+    .container{
+      max-width: 1000px;
+      margin: auto;
+      padding: auto;
+  }
+
+    img{
+      width: 100%;
+    }
+
+    .task_004{
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .product{
+      margin-right: 10px;
+    }
+
+    .task_004 .product{
+      flex: 0 0 calc( 33.33% - 20px);
+    }
+
+  .product_heading a{
+      display: inline-block;
+      color: black;
+      text-decoration: none;
+  }
+
+  .product_heading a:hover{
+    text-decoration: underline;
+  }
+
+
+  
+{% endstylesheet %}
+
+<div class="container">
+  <div class="task_004">
+    {% assign product_handles = 'classic-shirt,new-shirt,stylish-shirt' | split: ',' %}
+    {% for product_handle in product_handles %}
+      <div class="product">
+        {% assign product = all_products[product_handle] %}
+        {% if product %}
+          <img src="{{ product.featured_image | img_url:'master'}}">
+          <div class= "product_heading">
+            <a href="{{ product.url }}"> {{ product.title }} </a>
+          </div>
+          <p>{{ product.price | money_with_currency}} </p>
+          {% if product.compare_at_price %}
+            <p>Compare at Price: {{ product.compare_at_price | money }}</p>
+          {% endif %}
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "task_004",
+  "settings": [],
+  "presets": [
+  {
+    "name": "task_004"
+  }
+]
+}
+{% endschema %}

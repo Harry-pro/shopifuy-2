@@ -1,0 +1,13 @@
+<div>
+  {% for product in products %}
+    <p>{{ product.handle }}</p>
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "custom-page-section",
+  "settings": []
+
+}
+{% endschema %}

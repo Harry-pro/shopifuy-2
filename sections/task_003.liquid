@@ -1,0 +1,56 @@
+{% assign myMenuHandle = section.settings.custom_menu %}
+{% assign myMenu = linklists[myMenuHandle] %}
+
+<section class="task_003">
+  <div class="custom_menus">
+    <div id="custom_heading">
+      <h1>{{ myMenu.title }}</h1>
+    </div>
+    <div class="custom_menus_heading">
+      <ul class="parent_menu">
+        {% for link in myMenu.links %}
+          <li class="parent_menu_item">
+            <a href="{{ link.url }}">{{ link.title }}</a>
+            {% if link.links.size > 0 %}
+              <ul class="child_menu">
+                {% for sublink in link.links %}
+                  <li>
+                    <a href="{{ sublink.url }}">{{ sublink.title }}</a>
+                    {% if sublink.links.size > 0 %}
+                      <ul class="grandchild_menu ">
+                        {% for subsublink in sublink.links %}
+                          <li>
+                            <a href="{{ subsublink.url }}">{{ subsublink.title }}</a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Task 003",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "custom_menu",
+      "label": "Select your menu"
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Task 003"
+    }
+  ]
+}
+{% endschema %}

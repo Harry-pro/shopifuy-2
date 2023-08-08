@@ -1,0 +1,44 @@
+<div class="Task-008">
+  <div class="Task-008-img">
+    <img src="{{ section.settings.imge | img_url:'master' }}">
+    <div class="image_overlay"></div>
+  </div>
+
+  <div class="Task-008-content">
+    {% if customer %}
+      {% if customer.tags contains 'vip' %}
+        <p>Welcome to the site, you are a VIP customer</p>
+      {% elsif customer.tags contains 'executive' %}
+        <p>Welcome to the site, you are an Executive customer</p>
+      {% else %}
+        <p>Hi, welcome to the site {{ customer.name }}</p>
+      {% endif %}
+    {% else %}
+      <p>Please log in to see your banner message</p>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Task-008",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "imge",
+      "label": "Select your image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Task-008",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
